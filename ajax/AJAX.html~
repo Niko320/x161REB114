@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>AJAX:x161REB114</title>
+</head>
+Ludzu ievadi apliecibas numuru:
+<form name=main_firm>
+<input tipe="text" name="student_id" value="start" title="start">
+Studenta dati ir <span id="result_span" style="color:red"> - </span>
+</form>
+</body>
+</html>
+
+<script type="text/javascript">
+
+function xml_http_post(url, data, callback){
+	var req = new XMLHttpRequest();
+	req.open("POST", url, true);
+	req.onreadystatechange = function(){
+		if(req.readyState == 4){
+			callback(req);
+}
+}
+req.send(data);
+}
+
+function display_result(req){
+	var elem = document.getElementById('result_span');
+	elem.interHTML = req.responseText;
+}
+</script>
